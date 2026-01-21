@@ -17,9 +17,6 @@ public class User {
     private UUID userID;
 
     @Column(nullable = false)
-    private BigDecimal balance;
-
-    @Column(nullable = false)
     private String name;
 
     @Column(nullable = false)
@@ -38,54 +35,30 @@ public class User {
     @CreationTimestamp
     private LocalDateTime registerAt;
 
-    public User(UUID userID, BigDecimal balance, String name, String surname, String email, String phone, String passwordHash) {
+    public User(UUID userID, String name, String surname, String email, String phone, String passwordHash, LocalDateTime registerAt) {
         this.userID = userID;
-        this.balance = balance;
         this.name = name;
         this.surname = surname;
         this.email = email;
         this.phone = phone;
         this.passwordHash = passwordHash;
+        this.registerAt = registerAt;
     }
 
-    public UUID getUserID() {
-        return userID;
+    public LocalDateTime getRegisterAt() {
+        return registerAt;
     }
 
-    public void setUserID(UUID userID) {
-        this.userID = userID;
+    public void setRegisterAt(LocalDateTime registerAt) {
+        this.registerAt = registerAt;
     }
 
-    public BigDecimal getBalance() {
-        return balance;
+    public String getPasswordHash() {
+        return passwordHash;
     }
 
-    public void setBalance(BigDecimal balance) {
-        this.balance = balance;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getSurname() {
-        return surname;
-    }
-
-    public void setSurname(String surname) {
-        this.surname = surname;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
+    public void setPasswordHash(String passwordHash) {
+        this.passwordHash = passwordHash;
     }
 
     public String getPhone() {
@@ -96,11 +69,35 @@ public class User {
         this.phone = phone;
     }
 
-    public String getPasswordHash() {
-        return passwordHash;
+    public String getEmail() {
+        return email;
     }
 
-    public void setPasswordHash(String passwordHash) {
-        this.passwordHash = passwordHash;
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public UUID getUserID() {
+        return userID;
+    }
+
+    public void setUserID(UUID userID) {
+        this.userID = userID;
     }
 }

@@ -17,10 +17,6 @@ public class TransactionService {
         this.userRepository = userRepository;
     }
 
-    public Transaction getAllTranscations(TransactionRequest request){
 
-        var transaction = new Transaction(request.amount(),request.receiverId(),request.senderId())
-
-    }
 
 }
