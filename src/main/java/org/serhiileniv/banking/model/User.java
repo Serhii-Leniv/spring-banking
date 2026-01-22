@@ -39,6 +39,27 @@ public class User implements UserDetails {
     @CreationTimestamp
     private LocalDateTime registerAt;
 
+    public String getVerificationCode() {
+        return verificationCode;
+    }
+
+    public void setVerificationCode(String verificationCode) {
+        this.verificationCode = verificationCode;
+    }
+
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
+    }
+
+    private String verificationCode;
+
+    private boolean enabled = false;
+
+    @Override
+    public boolean isEnabled() {
+        return this.enabled;
+    }
+
     public User(){}
 
     public User(UUID userID, String name, String surname, String email, String phone, String passwordHash, LocalDateTime registerAt) {
@@ -137,8 +158,5 @@ public class User implements UserDetails {
         return UserDetails.super.isCredentialsNonExpired();
     }
 
-    @Override
-    public boolean isEnabled() {
-        return UserDetails.super.isEnabled();
-    }
+
 }
